@@ -12,7 +12,6 @@ public class DashboardComment {
 
     private String comment;
 
-
     private String gebruiker;
 
     public DashboardComment () {

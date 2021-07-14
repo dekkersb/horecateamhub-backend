@@ -5,15 +5,25 @@ import com.example.horecateamhub.repository.DashboardCommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DashboardCommentServiceImp implements DashboardCommentService {
 
+    private DashboardCommentRepository dashboardCommentRepository;
+
     @Autowired
-    DashboardCommentRepository dashboardCommentRepository;
+    public DashboardCommentServiceImp (DashboardCommentRepository dashboardCommentRepository) {
+        this.dashboardCommentRepository = dashboardCommentRepository;
+    }
 
     @Override
-    public DashboardComment saveDashboardComment (DashboardComment dashboardComment) {
-        dashboardCommentRepository.save(dashboardComment);
-        return dashboardComment;
+    public List<DashboardComment> findAll() {
+    return dashboardCommentRepository.findAll();
+    }
+
+    @Override
+    public DashboardComment save(DashboardComment dashboardComment) {
+        return dashboardCommentRepository.save(dashboardComment);
     }
 }

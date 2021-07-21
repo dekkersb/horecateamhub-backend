@@ -1,6 +1,7 @@
 package com.example.horecateamhub.model;
 
 import javax.persistence.*;
+import java.text.DateFormat;
 
 @Entity
 @Table
@@ -12,8 +13,9 @@ public class DashboardComment {
 
     private String comment;
 
-
     private String gebruiker;
+
+    private String date;
 
     public DashboardComment () {
     }
@@ -47,4 +49,11 @@ public class DashboardComment {
         this.gebruiker = gebruiker;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }

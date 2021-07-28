@@ -29,11 +29,6 @@ public class DashboardCommentController {
         return dashboardCommentService.findAll();
     }
 
-//    @PostMapping
-//    public DashboardComment save(@RequestBody DashboardComment dashboardComment) {
-//        return dashboardCommentService.save(dashboardComment);
-//    }
-
     @PostMapping("/new_comment")
     public ResponseEntity<Object> saveComment(@RequestParam String gebruiker,
                                               @RequestParam String comment,

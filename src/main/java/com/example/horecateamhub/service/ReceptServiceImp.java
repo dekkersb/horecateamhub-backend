@@ -5,15 +5,23 @@ import com.example.horecateamhub.repository.ReceptRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ReceptServiceImp implements ReceptService {
 
+    private ReceptRepository receptRepository;
+
     @Autowired
-    ReceptRepository receptRepository;
+    public ReceptServiceImp (ReceptRepository receptRepository) {
+        this.receptRepository = receptRepository;
+    }
 
     @Override
-    public Recept saveRecept (Recept recept) {
-        receptRepository.save(recept);
-        return recept;
+    public List<Recept> findAll() { return receptRepository.findAll(); }
+
+    @Override
+    public Recept save(Recept recept) {
+        return  receptRepository.save(recept);
     }
 }

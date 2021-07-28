@@ -11,7 +11,7 @@ import java.util.List;
 
 @CrossOrigin(origins = {"*"} )
 @RestController
-@RequestMapping("/recept")
+@RequestMapping("/recepten")
 public class ReceptController {
 private ReceptService receptService;
 

@@ -1,12 +1,13 @@
 //package com.example.horecateamhub.repository;
 //
-//import com.example.horecateamhub.model.Ingredients;
+//import com.example.horecateamhub.model.Ingredient;
 //import org.springframework.data.jpa.repository.JpaRepository;
+//import org.springframework.stereotype.Repository;
 //
 //import java.util.List;
 //
-//public interface IngredientsRepository extends JpaRepository<Ingredients, Long> {
-//    List <Ingredients> findByNameContainingIgnoreCase (String query);
-//
-//    List <Ingredients> findByType (String type);
+//@Repository
+//public interface IngredientsRepository extends JpaRepository<Ingredient, Long> {
+//    List<Ingredient> getIngredientsByReceptId(Long id);
+//    void deleteById(Long id);
 //}

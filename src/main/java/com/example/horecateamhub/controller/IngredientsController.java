@@ -1,17 +1,58 @@
-//package com.example.horecateamhub.controller;
+//compackage com.example.horecateamhub.controller;
 //
-//
-//import com.example.horecateamhub.repository.IngredientsRepository;
+//import com.example.horecateamhub.model.Ingredient;
+//import com.example.horecateamhub.service.IngredientsService;
 //import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.web.bind.annotation.CrossOrigin;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RestController;
+//import org.springframework.http.ResponseEntity;
+//import org.springframework.web.bind.annotation.*;
+//
+//import java.io.IOException;
+//import java.util.ArrayList;
+//import java.util.List;
 //
 //@CrossOrigin
 //@RestController
-//@RequestMapping("/api")
+//@RequestMapping("ingredients")
 //public class IngredientsController {
 //
+//    private final IngredientsService ingredientsService;
+//
 //    @Autowired
-//    IngredientsRepository ingredientsRepository;
+//    public IngredientsController(IngredientsService ingredientsService) {
+//        this.ingredientsService = ingredientsService;
+//    }
+//
+//    @GetMapping
+//    public List<Ingredient> getAllIngredients() {
+//        var ingredients = new ArrayList<Ingredient>();
+//        var allIngredients = ingredientsService.getAllIngredients();
+//
+//        for (Ingredient singleIngredient : allIngredients) {
+//            ingredients.add(singleIngredient);
+//        } return ingredients;
+//    }
+//
+//    @GetMapping("/{id}")
+//    public Ingredient getIngredients (@PathVariable("id") Long id) {
+//        var ingredients = ingredientsService.getIngredients(id);
+//        return ingredients;
+//    }
+//
+//    @PostMapping
+//    public Ingredient saveIngredients(@RequestBody Ingredient ingredientOne) {
+//        var ingredients = ingredientsService.saveIngredients(ingredientOne);
+//        return ingredients;
+//    }
+////
+////    @PostMapping("/save_ingredients")
+////    public Ingredient addIngredients(@RequestBody IngredientsRequest ingredientsRequest) {
+////
+////    }
+//
+//    //LETOP!
+//    @DeleteMapping({"/{id}"})
+//    public ResponseEntity<Object> deleteIngredients(@PathVariable("id") Long id) throws IOException {
+//        ingredientsService.deleteIngredients(id);
+//        return ResponseEntity.noContent().build();
+//    }
 //}

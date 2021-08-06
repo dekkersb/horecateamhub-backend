@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @CrossOrigin(origins = {"*"} )
@@ -21,14 +20,19 @@ private ReceptService receptService;
     }
 
     @GetMapping
-    public List<Recept> findAll() {
-        return receptService.findAll();
-    }
+    public List<Recept> findByOrderByNameAsc() {return receptService.findByOrderByNameAsc();}
+
+    @GetMapping("/glutenvrij")
+    public List<Recept> findAllByGlutenIsFalseOrderByNameAsc() { return receptService.findAllByGlutenIsFalseOrderByNameAsc(); }
+
+    @GetMapping("/dressings")
+    public List<Recept> findAllByTypeContains(String type) {return receptService.findAllByType(type);}
 
     @PostMapping("/new_recipe")
     public ResponseEntity<Object> saveRecept(@RequestParam String name,
                                             @RequestParam String type,
                                             @RequestParam String quantity,
+                                            @RequestParam String ingredients,
                                             @RequestParam String steps,
                                             @RequestParam boolean gluten,
                                             @RequestParam boolean lactose,
@@ -38,6 +42,7 @@ private ReceptService receptService;
             recept.setName(name);
             recept.setType(type);
             recept.setQuantity(quantity);
+            recept.setIngredients(ingredients);
             recept.setSteps(steps);
             recept.setGluten(gluten);
             recept.setLactose(lactose);

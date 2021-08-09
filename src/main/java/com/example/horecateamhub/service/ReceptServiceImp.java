@@ -17,12 +17,15 @@ public class ReceptServiceImp implements ReceptService {
     }
 
     @Override
-    public List<Recept> findByOrderByNameAsc() {return receptRepository.findByOrderByNameAsc();}
-
-    @Override
     public Recept save(Recept recept) {
         return  receptRepository.save(recept);
     }
+
+    @Override
+    public List<Recept> findByOrderByNameAsc() {return receptRepository.findByOrderByNameAsc();}
+
+    @Override
+    public List<Recept> findAllByType(String type) { return receptRepository.findAllByType(type);}
 
     @Override
     public List<Recept> findAllByGlutenIsFalseOrderByNameAsc() {
@@ -30,7 +33,13 @@ public class ReceptServiceImp implements ReceptService {
     }
 
     @Override
-    public List<Recept> findAllByType(String type) { return receptRepository.findAllByType(type);}
+    public List<Recept> findAllByLactoseIsFalseOrderByNameAsc() {
+        return receptRepository.findAllByLactoseIsFalseOrderByNameAsc();
+    }
 
+    @Override
+    public List<Recept> findAllByNotenIsFalseOrderByNameAsc() {
+        return receptRepository.findAllByNotenIsFalseOrderByNameAsc();
+    }
 
 }

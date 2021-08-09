@@ -22,11 +22,17 @@ private ReceptService receptService;
     @GetMapping
     public List<Recept> findByOrderByNameAsc() {return receptService.findByOrderByNameAsc();}
 
+    @GetMapping("/types")
+    public List<Recept> findAllByType(@RequestParam String type) {return receptService.findAllByType(type);}
+
     @GetMapping("/glutenvrij")
     public List<Recept> findAllByGlutenIsFalseOrderByNameAsc() { return receptService.findAllByGlutenIsFalseOrderByNameAsc(); }
 
-    @GetMapping("/dressings")
-    public List<Recept> findAllByTypeContains(String type) {return receptService.findAllByType(type);}
+    @GetMapping("/lactosevrij")
+    public List<Recept> findAllByLactoseIsFalseOrderByNameAsc() { return receptService.findAllByLactoseIsFalseOrderByNameAsc(); }
+
+    @GetMapping("/notenvrij")
+    public List<Recept> findAllByNotenIsFalseOrderByNameAsc() { return receptService.findAllByNotenIsFalseOrderByNameAsc(); }
 
     @PostMapping("/new_recipe")
     public ResponseEntity<Object> saveRecept(@RequestParam String name,

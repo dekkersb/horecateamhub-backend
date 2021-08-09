@@ -6,8 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ReceptRepository extends JpaRepository<Recept, Long> {
- List<Recept> findAllByGlutenIsFalseOrderByNameAsc();
- List<Recept> findAllByType(String type);
  List<Recept> findByOrderByNameAsc();
-
+ List<Recept> findAllByType(String type);
+ List<Recept> findAllByGlutenIsFalseOrderByNameAsc();
+ List<Recept> findAllByLactoseIsFalseOrderByNameAsc();
+ List<Recept> findAllByNotenIsFalseOrderByNameAsc();
 }

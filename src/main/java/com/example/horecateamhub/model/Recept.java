@@ -16,6 +16,8 @@ public class Recept {
 
     private String quantity;
 
+    private String ingredients;
+
     private String steps;
 
     private boolean gluten;
@@ -28,10 +30,11 @@ public class Recept {
 
     }
 
-    public Recept (String name, String type, String quantity, String steps, boolean gluten, boolean lactose, boolean noten){
+    public Recept (String name, String type, String quantity, String ingredients, String steps, boolean gluten, boolean lactose, boolean noten){
         this.name = name;
         this.type = type;
         this.quantity = quantity;
+        this.ingredients = ingredients;
         this.steps = steps;
         this.gluten = gluten;
         this.lactose = lactose;
@@ -70,6 +73,10 @@ public class Recept {
         this.quantity = quantity;
     }
 
+    public String getIngredients() { return ingredients; }
+
+    public void setIngredients(String ingredients) { this.ingredients = ingredients; }
+
     public String getSteps() {
         return steps;
     }
@@ -78,9 +85,7 @@ public class Recept {
         this.steps = steps;
     }
 
-    public boolean getGluten() {
-        return gluten;
-    }
+    public boolean getGluten() { return gluten; }
 
     public void setGluten(boolean gluten) {
         this.gluten = gluten;

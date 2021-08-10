@@ -17,7 +17,8 @@ public class ReceptServiceImp implements ReceptService {
     }
 
     @Override
-    public Recept save(Recept recept) {
+    public Recept save(Recept recept)
+    {
         return  receptRepository.save(recept);
     }
 

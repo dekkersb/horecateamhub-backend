@@ -4,11 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table
-public class Recept {
+public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     private String name;
 
@@ -24,13 +24,12 @@ public class Recept {
 
     private boolean lactose;
 
-    private boolean noten;
+    private boolean nuts;
 
-    public Recept () {
-
+    public Recipe () {
     }
 
-    public Recept (String name, String type, String quantity, String ingredients, String steps, boolean gluten, boolean lactose, boolean noten){
+    public Recipe (String name, String type, String quantity, String ingredients, String steps, boolean gluten, boolean lactose, boolean nuts){
         this.name = name;
         this.type = type;
         this.quantity = quantity;
@@ -38,14 +37,14 @@ public class Recept {
         this.steps = steps;
         this.gluten = gluten;
         this.lactose = lactose;
-        this.noten = noten;
+        this.nuts = nuts;
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -73,9 +72,11 @@ public class Recept {
         this.quantity = quantity;
     }
 
-    public String getIngredients() { return ingredients; }
+    public String getIngredients() {
+        return ingredients; }
 
-    public void setIngredients(String ingredients) { this.ingredients = ingredients; }
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients; }
 
     public String getSteps() {
         return steps;
@@ -85,7 +86,8 @@ public class Recept {
         this.steps = steps;
     }
 
-    public boolean getGluten() { return gluten; }
+    public boolean getGluten() {
+        return gluten; }
 
     public void setGluten(boolean gluten) {
         this.gluten = gluten;
@@ -99,12 +101,12 @@ public class Recept {
         this.lactose = lactose;
     }
 
-    public boolean getNoten() {
-        return noten;
+    public boolean getNuts() {
+        return nuts;
     }
 
-    public void setNoten(boolean noten) {
-        this.noten = noten;
+    public void setNuts(boolean nuts) {
+        this.nuts = nuts;
     }
 
 }

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface DashboardCommentService {
     List<DashboardComment> findAll();
-    DashboardComment save(DashboardComment dashboardComment);
+    void save(DashboardComment dashboardComment);
 }

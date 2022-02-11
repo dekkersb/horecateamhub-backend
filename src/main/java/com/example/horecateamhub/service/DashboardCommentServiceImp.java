@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class DashboardCommentServiceImp implements DashboardCommentService {
 
-    private DashboardCommentRepository dashboardCommentRepository;
+    private final DashboardCommentRepository dashboardCommentRepository;
 
     @Autowired
     public DashboardCommentServiceImp (DashboardCommentRepository dashboardCommentRepository) {
@@ -23,7 +23,7 @@ public class DashboardCommentServiceImp implements DashboardCommentService {
     }
 
     @Override
-    public DashboardComment save(DashboardComment dashboardComment) {
-        return dashboardCommentRepository.save(dashboardComment);
+    public void save(DashboardComment dashboardComment) {
+        dashboardCommentRepository.save(dashboardComment);
     }
 }

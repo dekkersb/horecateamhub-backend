@@ -2,20 +2,16 @@ package com.example.horecateamhub.controller;
 
 import com.example.horecateamhub.model.DashboardComment;
 import com.example.horecateamhub.service.DashboardCommentService;
-import com.example.horecateamhub.service.DashboardCommentServiceImp;
-import net.bytebuddy.TypeCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.*;
-import java.text.DateFormat;
 import java.util.List;
 
 @CrossOrigin(origins = {"*"} )
 @RestController
-@RequestMapping("/dashboardcomment")
+@RequestMapping("/api/dashboardcomment")
 public class DashboardCommentController {
     private DashboardCommentService dashboardCommentService;
 
@@ -30,13 +26,14 @@ public class DashboardCommentController {
     }
 
     @PostMapping("/new_comment")
-    public ResponseEntity<Object> saveComment(@RequestParam String gebruiker,
+    public ResponseEntity<DashboardComment> saveComment(
+                                              @RequestParam String userName,
                                               @RequestParam String comment,
                                               @RequestParam String date)
 {
         try {
             DashboardComment dashboardComment = new DashboardComment();
-            dashboardComment.setGebruiker(gebruiker);
+            dashboardComment.setUserName(userName);
             dashboardComment.setComment(comment);
             dashboardComment.setDate(date);
 

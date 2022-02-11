@@ -1,7 +1,6 @@
 package com.example.horecateamhub.model;
 
 import javax.persistence.*;
-import java.text.DateFormat;
 
 @Entity
 @Table
@@ -9,27 +8,28 @@ public class DashboardComment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     private String comment;
 
-    private String gebruiker;
+    private String userName;
 
     private String date;
 
     public DashboardComment () {
     }
 
-    public DashboardComment (String comment, String gebruiker) {
+    public DashboardComment (String comment, String userName, String date) {
         this.comment = comment;
-        this.gebruiker = gebruiker;
+        this.userName = userName;
+        this.date = date;
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -41,12 +41,12 @@ public class DashboardComment {
         this.comment = comment;
     }
 
-    public String getGebruiker() {
-        return gebruiker;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setGebruiker(String gebruiker) {
-        this.gebruiker = gebruiker;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getDate() {
